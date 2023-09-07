@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.warpBox {
+    position: relative;
+}
+
+//电脑端
+@media (min-width: 767px) {
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(#000, #fff, #000);
+    }
+    .warpBox {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        width: 1000px;
+        height: 700px;
+        background-color: #c4c0c0;
+        border-radius: 150px;
+        overflow: hidden;
+
+        box-shadow: 5px 5px 10px 3px #000;
+
+        //左区域
+        .leftArea {
+            border-right: 2px solid;
+
+            position: relative;
+
+            background-color: rgb(2, 143, 171);
+
+            overflow: hidden;
+
+            //按钮区域
+            .buttonArea {
+                width: 200px;
+                max-width: 100%;
+                height: 200px;
+                //background-color: #fff;
+
+                position: absolute;
+
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                margin: auto;
+
+                display: grid;
+
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+
+                //上按钮
+                #up {
+                    grid-area: 1/3/2/2;
+                }
+
+                //右按钮
+                #right {
+                    grid-area: 2/4/3/3;
+                }
+
+                //下按钮
+                #down {
+                    grid-area: 3/3/4/2;
+                }
+
+                //左按钮
+                #left {
+                    grid-area: 2/2/3/1;
+                }
+
+                #up,
+                #right,
+                #down,
+                #left {
+                    border-radius: 50%;
+                    border: #27ad9a solid;
+                    background-color: #27ad9a;
+                    box-shadow: 1px 1px 5px 1px #fff;
+                }
+            }
+        }
+
+        //中间区域
+        .middleArea {
+            background-color: #000;
+
+            //屏幕
+            .screen {
+                width: 100%;
+                height: 100%;
+
+                display: grid;
+                justify-content: center;
+                align-items: center;
+
+                //贪吃蛇视口
+                .eatenSnake {
+                    max-width: 100%;
+                    width: 450px;
+                    height: 650px;
+                    box-shadow: 0 0 5px 3px #fff;
+
+                    color: #fff;
+
+                    display: grid;
+
+                    grid-template-rows: 450px auto;
+
+                    //贪吃蛇游戏视口
+                    .activeArea {
+                        border-bottom: 2px solid #fff;
+                        position: relative;
+
+                        //蛇蛇
+                        .snake > li {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background-color: #fff;
+                            border-radius: 3px;
+                        }
+                        .food {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background-color: #fff;
+                            border-radius: 3px;
+                        }
+                    }
+                    //分数视口
+                    .display {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+
+                        justify-items: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        //右边区域
+        .rightArea {
+            background-color: rgb(186, 16, 16);
+
+            border-left: 2px solid;
+
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .img {
+        width: 40%;
+    }
+}
+
+//竖屏手机端
+@media (max-width: 767px) {
+    .warpBox {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 10px;
+
+        grid-template-rows: 3fr 1fr;
+        grid-template-columns: 1fr 3fr;
+
+        //按钮区域
+        .leftArea {
+            grid-area: 2/3/3/2;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+
+            //按钮区域
+            .buttonArea {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+
+                #up {
+                    grid-area: 1/3/2/2;
+                }
+                #right {
+                    grid-area: 2/-1/3/3;
+                }
+                #down {
+                    grid-area: 3/3/-1/2;
+                }
+                #left {
+                    grid-area: 2/2/3/1;
+                }
+
+                #up,
+                #right,
+                #down,
+                #left {
+                    border-radius: 20px;
+                    border: none;
+                }
+            }
+        }
+
+        //显示区域
+        .middleArea {
+            grid-area: 1/3/2/1;
+            width: 100%;
+            height: 100%;
+
+            //屏幕
+            .screen {
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                grid-template-columns: 90%;
+
+                //贪吃蛇视口
+                .eatenSnake {
+                    height: 90%;
+                    box-shadow: 0 0 5px 3px #fff;
+
+                    display: grid;
+                    grid-template-rows: 3fr 1fr;
+                    justify-content: center;
+                    align-items: center;
+
+                    //游戏视口
+                    .activeArea {
+                        box-shadow: 0 0 5px 3px #fff;
+                        min-width: 300px;
+                        min-height: 300px;
+                        position: relative;
+
+                        .snake li {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background-color: #fff;
+                            border-radius: 3px;
+                        }
+
+                        .food {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background-color: #fff;
+                            border-radius: 3px;
+                        }
+                    }
+
+                    //分数视口
+                    .display {
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        align-items: center;
+
+                        div {
+                            color: #fff;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        //其他选项
+        .rightArea {
+            width: 100%;
+            height: 100%;
+            grid-area: 2/2/3/1;
+
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img {
+            width: 70%;
+        }
+    }
+}
+
+//暂停区域
+.pauseArea {
+    position: absolute;
+
+    display: none;
+
+    //宽高
+    width: 100%;
+    height: 100%;
+
+    grid-template-rows: 1fr 2fr 2fr;
+
+    backdrop-filter: blur(5px); //毛玻璃
+
+    //居中
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    justify-items: center;
+
+    //最高排名用户展示
+    .maxScore {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        color: #fff;
+        font-size: 20px;
+        display: grid;
+
+        #name {
+            grid-area: 1/-1/2/1;
+        }
+    }
+
+    //照片
+    .img {
+        position: relative;
+        // width: 40%;
+        align-self: center;
+
+        border-radius: 10px;
+        overflow: hidden;
+
+        animation: imgAnimation infinite 3s;
+
+        //文字显示区域
+        .textArea {
+            width: 60%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            color: #fff;
+            font-size: 25px;
+        }
+
+        img {
+            visibility: hidden;
+            width: 100%;
+            vertical-align: top;
+        }
+    }
+
+    //关键帧
+    @keyframes imgAnimation {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    //开始暂停区域
+    .start-continue {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        //开始按钮
+        #startGame {
+            // background-color: transparent;
+            border: none;
+            border-radius: 100%;
+        }
+        //继续按钮
+        #continue {
+            border: none;
+            border-radius: 100%;
+        }
+    }
+}
+
+//暂停按钮
+#pause {
+    background-color: transparent;
+    border: none;
+}

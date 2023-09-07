@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>贪吃蛇</title>
+        <link rel="stylesheet" href="./style/index.css" />
+        <script src="./JS/iconfont.js"></script>
+        <script src="./JS/jquery-3.6.0.min.js"></script>
+        <script defer src="./JS/index.js"></script>
+        <style>
+            .icon {
+                width: 50px;
+                height: 50px;
+                vertical-align: -0.15em;
+                fill: currentColor;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="warpBox">
+            <!-- 左手柄区域 -->
+            <div class="leftArea">
+                <div class="buttonArea">
+                    <button id="up">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-shanghua"></use>
+                        </svg>
+                    </button>
+                    <button id="left">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-zuohua"></use>
+                        </svg>
+                    </button>
+                    <button id="down">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xiahua"></use>
+                        </svg>
+                    </button>
+                    <button id="right">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-youhua"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="middleArea">
+                <!-- 屏幕区域 -->
+                <div class="screen">
+                    <!-- 贪吃蛇 -->
+                    <div class="eatenSnake">
+                        <!-- 游戏视口 -->
+                        <div class="activeArea">
+                            <!-- 蛇蛇 -->
+                            <ul class="snake">
+                                <li></li>
+                            </ul>
+
+                            <!-- 食物 -->
+                            <div class="food"></div>
+                        </div>
+                        <!-- 分数视口 -->
+                        <div class="display">
+                            <div id="score">
+                                <p>分数</p>
+                            </div>
+                            <div id="level">
+                                <p>等级</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右手柄区域 -->
+            <div class="rightArea">
+                <button id="pause">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zanting"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 暂停区域 -->
+            <div class="pauseArea">
+                <div class="maxScore">
+                    <p id="name">昵称：</p>
+                    <p id="maxScore">最高分数：</p>
+                    <p id="maxLevel">最高等级：</p>
+                </div>
+                <div class="img">
+                    <img src="./images/face3.jpg" />
+                    <div class="textArea">
+                        <p id="stateDisplay">游戏结束!</p>
+                        <p id="scoreRes">分数：</p>
+                        <p id="levelRes">等级：</p>
+                    </div>
+                </div>
+                <div class="start-continue">
+                    <button id="startGame">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-yunhang"></use>
+                        </svg>
+                    </button>
+                    <button id="continue">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-icon-"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

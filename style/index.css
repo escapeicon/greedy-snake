@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.warpBox {
+  position: relative;
+}
+@media (min-width: 767px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#000, #fff, #000);
+  }
+  .warpBox {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 1000px;
+    height: 700px;
+    background-color: #c4c0c0;
+    border-radius: 150px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px 3px #000;
+  }
+  .warpBox .leftArea {
+    border-right: 2px solid;
+    position: relative;
+    background-color: #028fab;
+    overflow: hidden;
+  }
+  .warpBox .leftArea .buttonArea {
+    width: 200px;
+    max-width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .warpBox .leftArea .buttonArea #up {
+    grid-area: 1/3/2/2;
+  }
+  .warpBox .leftArea .buttonArea #right {
+    grid-area: 2/4/3/3;
+  }
+  .warpBox .leftArea .buttonArea #down {
+    grid-area: 3/3/4/2;
+  }
+  .warpBox .leftArea .buttonArea #left {
+    grid-area: 2/2/3/1;
+  }
+  .warpBox .leftArea .buttonArea #up,
+  .warpBox .leftArea .buttonArea #right,
+  .warpBox .leftArea .buttonArea #down,
+  .warpBox .leftArea .buttonArea #left {
+    border-radius: 50%;
+    border: #27ad9a solid;
+    background-color: #27ad9a;
+    box-shadow: 1px 1px 5px 1px #fff;
+  }
+  .warpBox .middleArea {
+    background-color: #000;
+  }
+  .warpBox .middleArea .screen {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .warpBox .middleArea .screen .eatenSnake {
+    max-width: 100%;
+    width: 450px;
+    height: 650px;
+    box-shadow: 0 0 5px 3px #fff;
+    color: #fff;
+    display: grid;
+    grid-template-rows: 450px auto;
+  }
+  .warpBox .middleArea .screen .eatenSnake .activeArea {
+    border-bottom: 2px solid #fff;
+    position: relative;
+  }
+  .warpBox .middleArea .screen .eatenSnake .activeArea .snake > li {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  .warpBox .middleArea .screen .eatenSnake .activeArea .food {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  .warpBox .middleArea .screen .eatenSnake .display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+  }
+  .warpBox .rightArea {
+    background-color: #ba1010;
+    border-left: 2px solid;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .img {
+    width: 40%;
+  }
+}
+@media (max-width: 767px) {
+  .warpBox {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 10px;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 1fr 3fr;
+  }
+  .warpBox .leftArea {
+    grid-area: 2/3/3/2;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .warpBox .leftArea .buttonArea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .warpBox .leftArea .buttonArea #up {
+    grid-area: 1/3/2/2;
+  }
+  .warpBox .leftArea .buttonArea #right {
+    grid-area: 2/-1/3/3;
+  }
+  .warpBox .leftArea .buttonArea #down {
+    grid-area: 3/3/-1/2;
+  }
+  .warpBox .leftArea .buttonArea #left {
+    grid-area: 2/2/3/1;
+  }
+  .warpBox .leftArea .buttonArea #up,
+  .warpBox .leftArea .buttonArea #right,
+  .warpBox .leftArea .buttonArea #down,
+  .warpBox .leftArea .buttonArea #left {
+    border-radius: 20px;
+    border: none;
+  }
+  .warpBox .middleArea {
+    grid-area: 1/3/2/1;
+    width: 100%;
+    height: 100%;
+  }
+  .warpBox .middleArea .screen {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 90%;
+  }
+  .warpBox .middleArea .screen .eatenSnake {
+    height: 90%;
+    box-shadow: 0 0 5px 3px #fff;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .warpBox .middleArea .screen .eatenSnake .activeArea {
+    box-shadow: 0 0 5px 3px #fff;
+    min-width: 300px;
+    min-height: 300px;
+    position: relative;
+  }
+  .warpBox .middleArea .screen .eatenSnake .activeArea .snake li {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  .warpBox .middleArea .screen .eatenSnake .activeArea .food {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  .warpBox .middleArea .screen .eatenSnake .display {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .warpBox .middleArea .screen .eatenSnake .display div {
+    color: #fff;
+    text-align: center;
+  }
+  .warpBox .rightArea {
+    width: 100%;
+    height: 100%;
+    grid-area: 2/2/3/1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .warpBox .img {
+    width: 70%;
+  }
+}
+.pauseArea {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 2fr 2fr;
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  justify-items: center;
+}
+.pauseArea .maxScore {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  display: grid;
+}
+.pauseArea .maxScore #name {
+  grid-area: 1/-1/2/1;
+}
+.pauseArea .img {
+  position: relative;
+  align-self: center;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: imgAnimation infinite 3s;
+}
+.pauseArea .img .textArea {
+  width: 60%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  color: #fff;
+  font-size: 25px;
+}
+.pauseArea .img img {
+  visibility: hidden;
+  width: 100%;
+  vertical-align: top;
+}
+@keyframes imgAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pauseArea .start-continue {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.pauseArea .start-continue #startGame {
+  border: none;
+  border-radius: 100%;
+}
+.pauseArea .start-continue #continue {
+  border: none;
+  border-radius: 100%;
+}
+#pause {
+  background-color: transparent;
+  border: none;
+}
